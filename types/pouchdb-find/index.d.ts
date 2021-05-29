@@ -121,8 +121,15 @@ declare namespace PouchDB {
             };
         }
 
-        interface CreateIndexResponse<Content extends {}> {
-            result: string;
+        interface CreateIndexResponse {
+             /** Design document id (prefixed by '_design/'), auto-generated if you don't include it */
+            id: string;
+            
+            /** Name of the index, auto-generated if you don't include it */
+            name: string;
+            
+            /** Whether or not the index was created or already exists */
+            result: 'exists' | 'created';
         }
 
         interface Index {
